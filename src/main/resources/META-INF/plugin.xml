@@ -1,0 +1,19 @@
+<idea-plugin>
+    <id>ua.haltentech.webview-intellij-plugin</id>
+
+    <name>Webview-intellij-plugin</name>
+
+    <vendor email="aldanchenko@gmail.com" url="https://www.haltentech.com">Haltentech</vendor>
+
+    <description>
+        <![CDATA[
+            IntelliJ plugin to display context information in webview tool window.<br>
+        ]]>
+    </description>
+
+    <depends>com.intellij.modules.platform</depends>
+
+    <extensions defaultExtensionNs="com.intellij">
+
+    </extensions>
+</idea-plugin>
