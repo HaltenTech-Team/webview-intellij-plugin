@@ -4,7 +4,7 @@ plugins {
     id("org.jetbrains.intellij") version "1.9.0"
 }
 
-group = "ua.haltentech"
+group = "ua.haltentech.plugin"
 version = "1.0-SNAPSHOT"
 
 repositories {

@@ -1,1 +1,1 @@
-rootProject.name = "webview-intellij-plugin"
+rootProject.name = "Webview"

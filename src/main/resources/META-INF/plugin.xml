@@ -1,19 +1,26 @@
 <idea-plugin>
-    <id>ua.haltentech.webview-intellij-plugin</id>
+    <id>ua.haltentech.plugin.Webview</id>
 
-    <name>Webview-intellij-plugin</name>
+    <name>Webview</name>
 
     <vendor email="aldanchenko@gmail.com" url="https://www.haltentech.com">Haltentech</vendor>
 
-    <description>
-        <![CDATA[
-            IntelliJ plugin to display context information in webview tool window.<br>
-        ]]>
+    <description><![CDATA[
+        IntelliJ plugin to display context information in webview tool window.<br>
+    ]]>
     </description>
 
     <depends>com.intellij.modules.platform</depends>
 
     <extensions defaultExtensionNs="com.intellij">
-
     </extensions>
+
+    <actions>
+        <action id="ua.haltentech.plugin.webview.SendToWebviewAction"
+                class="ua.haltentech.plugin.webview.SendToWebviewAction"
+                text="Send to Webview"
+                description="Send to Webview">
+            <add-to-group group-id="ProjectViewPopupMenu" anchor="first"/>
+        </action>
+    </actions>
 </idea-plugin>
