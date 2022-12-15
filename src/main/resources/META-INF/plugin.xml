@@ -20,7 +20,9 @@
                 class="ua.haltentech.plugin.webview.SendToWebviewAction"
                 text="Send to Webview"
                 description="Send to Webview">
-            <add-to-group group-id="ProjectViewPopupMenu" anchor="first"/>
+            <add-to-group group-id="ProjectViewPopupMenu" anchor="last"/>
+            <add-to-group group-id="UsageView.Popup" anchor="last"/>
+            <add-to-group group-id="EditorPopupMenu" anchor="last"/>
         </action>
     </actions>
 </idea-plugin>
