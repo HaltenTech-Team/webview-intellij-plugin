@@ -13,6 +13,9 @@
     <depends>com.intellij.modules.platform</depends>
 
     <extensions defaultExtensionNs="com.intellij">
+        <toolWindow id="Webview"
+                    secondary="true" icon="AllIcons.General.Modified" anchor="right"
+                    factoryClass="ua.haltentech.plugin.webview.WebviewToolwindowFactory"/>
     </extensions>
 
     <actions>

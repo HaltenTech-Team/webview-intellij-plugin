@@ -4,7 +4,7 @@ import com.intellij.openapi.actionSystem.AnAction
 import com.intellij.openapi.actionSystem.AnActionEvent
 
 class SendToWebviewAction : AnAction() {
-    override fun actionPerformed(e: AnActionEvent) {
+    override fun actionPerformed(actionEvent: AnActionEvent) {
         println("Test")
     }
 }

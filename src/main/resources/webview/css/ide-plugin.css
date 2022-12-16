@@ -1,0 +1,21 @@
+
+.css-loaded-sucessfuly {
+    background-color: aqua;
+    font-weight: 300;
+}
+
+.section {
+    border: 1px solid black;
+    margin-top: 3px;
+}
+.section>:first-child {
+    font-weight: bold;
+}
+
+textarea {
+    width: 100%;
+}
+
+input {
+    width: 100%;
+}
