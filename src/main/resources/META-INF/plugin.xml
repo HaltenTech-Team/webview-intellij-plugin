@@ -16,16 +16,29 @@
         <toolWindow id="Webview"
                     secondary="true" icon="AllIcons.General.Modified" anchor="right"
                     factoryClass="ua.haltentech.plugin.webview.WebviewToolwindowFactory"/>
+        <notificationGroup id="Webview Notification Group"
+                           displayType="BALLOON"
+                           key="notification.group.name"/>
     </extensions>
 
     <actions>
-        <action id="ua.haltentech.plugin.webview.SendToWebviewAction"
-                class="ua.haltentech.plugin.webview.SendToWebviewAction"
+        <action id="ua.haltentech.plugin.webview.actions.SendToWebviewFromEditorAction"
+                class="ua.haltentech.plugin.webview.actions.SendToWebviewFromEditorAction"
+                text="Send to Webview"
+                description="Send to Webview">
+            <add-to-group group-id="EditorPopupMenu" anchor="last"/>
+        </action>
+        <action id="ua.haltentech.plugin.webview.actions.SendToWebviewFromProjectsAction"
+                class="ua.haltentech.plugin.webview.actions.SendToWebviewFromProjectsAction"
                 text="Send to Webview"
                 description="Send to Webview">
             <add-to-group group-id="ProjectViewPopupMenu" anchor="last"/>
+        </action>
+        <action id="ua.haltentech.plugin.webview.actions.SendToWebviewFromUsagesAction"
+                class="ua.haltentech.plugin.webview.actions.SendToWebviewFromUsagesAction"
+                text="Send to Webview"
+                description="Send to Webview">
             <add-to-group group-id="UsageView.Popup" anchor="last"/>
-            <add-to-group group-id="EditorPopupMenu" anchor="last"/>
         </action>
     </actions>
 </idea-plugin>
