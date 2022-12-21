@@ -39,13 +39,17 @@
         var filePathElement = document.getElementById("file-path")
         var fileContentElement = document.getElementById("file-content")
         var eventInfoElement = document.getElementById("event-info")
-        
+        var goToLineNumber = document.getElementById("go-to-line-number")
+        var goToFilePath = document.getElementById("go-to-filepath")
+
         // call when clicking on line in code-editor, search results
         function clickedOnLine(ideEventObject, lineContent, lineNumber, filePath, fileContent) {
             lineNumberElement.innerHTML = lineNumber
             lineContentElement.innerHTML = lineContent
             filePathElement.innerHTML = filePath
             fileContentElement.innerHTML = fileContent
+            goToLineNumber.value = lineNumber
+            goToFilePath.value = filePath
 
             eventInfoElement.innerHTML = JSON.stringify(ideEventObject)
         }
@@ -57,14 +61,6 @@
             else fileContentElement.innerHTML = filesInFolder
 
             eventInfoElement.innerHTML = JSON.stringify(ideEventObject)
-        }
-
-        // will go to line in given file
-        function goToLine() {
-            var filePath = document.getElementById("go-to-filepath").value
-            var lineNumber = document.getElementById("go-to-line-number").value
-            
-            document.getElementById("go-to-file-event").innerHTML = "going to file: " + filePath + ", line: " + lineNumber
         }
 
     </script>
