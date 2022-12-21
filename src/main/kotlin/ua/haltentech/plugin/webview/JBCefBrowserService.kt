@@ -62,8 +62,6 @@ class JBCefBrowserService(private val project: Project) {
                 document.getElementById("go-to-file-event").innerHTML = "going to file: " + filePath + ", line: " + lineNumber
             }
             
-            //var answers = findAnswers()
-            
             """.trimIndent()
 
         browser.cefBrowser.executeJavaScript(injectedJavaScript, browser.cefBrowser.url, 0)

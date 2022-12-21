@@ -11,6 +11,10 @@ class SendToWebviewFromProjectsAction : AnAction() {
         val project = actionEvent.getData(CommonDataKeys.PROJECT) ?: return
         val virtualFile = actionEvent.getData(CommonDataKeys.VIRTUAL_FILE) ?: return
 
-        project.service<JBCefBrowserService>().executeClickedOnFileFunction("", virtualFile.path, "", "")
+        project.service<JBCefBrowserService>().executeClickedOnFileFunction(
+            "SendToWebviewFromProjectsAction",
+            virtualFile.path,
+            "",
+            "")
     }
 }

@@ -5,6 +5,7 @@ import com.intellij.openapi.actionSystem.AnActionEvent
 import com.intellij.openapi.actionSystem.CommonDataKeys
 import com.intellij.openapi.components.service
 import com.intellij.openapi.editor.*
+import com.intellij.psi.PsiManager
 import ua.haltentech.plugin.webview.JBCefBrowserService
 
 class SendToWebviewFromEditorAction : AnAction() {
@@ -17,11 +18,15 @@ class SendToWebviewFromEditorAction : AnAction() {
         val primaryCaret: Caret = caretModel.primaryCaret
         val visualPos: VisualPosition = primaryCaret.visualPosition
 
+        val psiFile = PsiManager.getInstance(project).findFile(virtualFile) ?: return
+
+        val currentLinePsiElement = psiFile.findElementAt(caretModel.offset)
+
         project.service<JBCefBrowserService>().executeClickedOnLineFunction(
-            "",
-            "",
+            "SendToWebviewFromEditorAction",
+            currentLinePsiElement?.text ?: "",
             visualPos.line,
             virtualFile.path,
-            "")
+            "psiFile.text")
     }
 }
