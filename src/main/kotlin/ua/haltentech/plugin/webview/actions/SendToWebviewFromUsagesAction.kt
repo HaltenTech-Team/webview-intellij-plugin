@@ -8,8 +8,9 @@ import ua.haltentech.plugin.webview.JBCefBrowserService
 
 class SendToWebviewFromUsagesAction : AnAction() {
     override fun actionPerformed(actionEvent: AnActionEvent) {
+        val project = actionEvent.getData(CommonDataKeys.PROJECT) ?: return
         val virtualFile = actionEvent.getData(CommonDataKeys.VIRTUAL_FILE) ?: return
 
-        service<JBCefBrowserService>().executeClickedOnFileFunction("", virtualFile.path, "", "")
+        project.service<JBCefBrowserService>().executeClickedOnFileFunction("", virtualFile.path, "", "")
     }
 }

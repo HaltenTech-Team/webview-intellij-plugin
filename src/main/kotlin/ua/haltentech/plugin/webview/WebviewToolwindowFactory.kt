@@ -12,7 +12,7 @@ class WebviewToolwindowFactory : ToolWindowFactory {
     override fun createToolWindowContent(project: Project, toolWindow: ToolWindow) {
         val httpPluginPath = "http://plugin"
 
-        val cefBrowserService = service<JBCefBrowserService>()
+        val cefBrowserService = project.service<JBCefBrowserService>()
 
         CefApp.getInstance()
                 .registerSchemeHandlerFactory("http", "plugin", LocalResourceSchemeHandlerFactory(httpPluginPath))
