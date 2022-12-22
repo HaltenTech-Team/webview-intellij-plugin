@@ -5,6 +5,7 @@ import com.intellij.openapi.actionSystem.AnActionEvent
 import com.intellij.openapi.actionSystem.CommonDataKeys
 import com.intellij.openapi.components.service
 import com.intellij.openapi.editor.*
+import com.intellij.openapi.util.TextRange
 import com.intellij.psi.PsiManager
 import ua.haltentech.plugin.webview.JBCefBrowserService
 
@@ -20,13 +21,20 @@ class SendToWebviewFromEditorAction : AnAction() {
 
         val psiFile = PsiManager.getInstance(project).findFile(virtualFile) ?: return
 
-        val currentLinePsiElement = psiFile.findElementAt(caretModel.offset)
-
         project.service<JBCefBrowserService>().executeClickedOnLineFunction(
             "SendToWebviewFromEditorAction",
-            currentLinePsiElement?.text ?: "",
+            getCurrentLineContent(editor),
             visualPos.line,
             virtualFile.path,
             "psiFile.text")
+    }
+
+    private fun getCurrentLineContent(editor: Editor): String {
+        val offset = editor.caretModel.offset
+        val document = editor.document
+        val line = document.getLineNumber(offset)
+        val textRange = TextRange(document.getLineStartOffset(line), document.getLineEndOffset(line))
+
+        return document.getText(textRange)
     }
 }
